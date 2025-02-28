@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ArrowUpRight } from 'lucide-react';
 
 // Sample product data
 const products = {
@@ -80,31 +81,40 @@ const products = {
 const ProductCard = ({ product, index }: { product: any, index: number }) => {
   return (
     <motion.div
-      className="product-card"
+      className="group relative overflow-hidden rounded-xl bg-white shadow-md border border-gray-100"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8 }}
     >
-      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-xl bg-gray-200">
+      <div className="aspect-square overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
-          className="h-64 w-full object-cover object-center transition-all duration-300 hover:scale-105"
+          className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
+        <div className="absolute bottom-0 left-0 p-6 z-10">
+          <h3 className="text-xl font-bold text-white">{product.name}</h3>
+          <p className="mt-1 text-white/80">${product.price}</p>
+        </div>
       </div>
+      
       <div className="p-6">
-        <h3 className="text-xl font-bold text-litvi-darkBrown">{product.name}</h3>
-        <p className="mt-2 text-litvi-brown/80 line-clamp-2">{product.description}</p>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-lg font-semibold text-litvi-brown">${product.price}</span>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="border-litvi-brown text-litvi-brown hover:bg-litvi-brown hover:text-white"
-          >
-            View Details
-          </Button>
+        <p className="text-litvi-brown/80 mb-4">{product.description}</p>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="border-litvi-brown text-litvi-brown hover:bg-litvi-brown hover:text-white w-full flex items-center justify-between"
+        >
+          <span>View Details</span>
+          <ArrowUpRight className="h-4 w-4" />
+        </Button>
+      </div>
+      
+      <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-8 h-8 bg-litvi-brown rounded-full flex items-center justify-center">
+          <span className="text-white font-bold text-xs">New</span>
         </div>
       </div>
     </motion.div>
@@ -115,14 +125,14 @@ const Products = () => {
   const [selectedTab, setSelectedTab] = useState("farmhouse");
   
   return (
-    <section id="products" className="py-20 bg-litvi-lightCream">
+    <section id="products" className="py-24 bg-litvi-lightCream">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1 mb-4 rounded-full bg-white border border-litvi-brown/20">
             <span className="text-sm font-medium text-litvi-brown">Our Collection</span>
@@ -141,28 +151,28 @@ const Products = () => {
           className="w-full"
         >
           <motion.div 
-            className="flex justify-center mb-10"
+            className="flex justify-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <TabsList className="bg-white border border-litvi-brown/20">
+            <TabsList className="bg-white border border-litvi-brown/20 p-1 shadow-sm">
               <TabsTrigger 
                 value="farmhouse"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
               >
                 Farmhouse
               </TabsTrigger>
               <TabsTrigger 
                 value="undermount"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
               >
                 Undermount
               </TabsTrigger>
               <TabsTrigger 
                 value="specialty"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
               >
                 Specialty
               </TabsTrigger>
@@ -195,16 +205,16 @@ const Products = () => {
         </Tabs>
         
         <motion.div 
-          className="mt-12 text-center"
+          className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true, amount: 0.2 }}
         >
           <Button 
-            className="bg-litvi-brown hover:bg-litvi-darkBrown text-white px-8"
+            className="bg-litvi-brown hover:bg-litvi-darkBrown text-white px-8 py-6"
           >
-            View All Products
+            View Full Catalog
           </Button>
         </motion.div>
       </div>

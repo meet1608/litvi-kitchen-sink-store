@@ -47,15 +47,15 @@ const TimelineItem = ({ item, index }: { item: any, index: number }) => {
     >
       <div className="timeline-dot"></div>
       <div 
-        className={`p-6 bg-white rounded-lg shadow-sm border border-litvi-brown/10 ${
+        className={`p-8 bg-white rounded-xl shadow-md border border-litvi-brown/10 hover:shadow-lg transition-all duration-300 ${
           isEven ? 'md:text-right' : ''
         }`}
       >
-        <span className="inline-block px-3 py-1 mb-3 text-sm font-bold bg-litvi-cream text-litvi-brown rounded-full">
+        <span className="inline-block px-4 py-2 mb-4 text-sm font-bold bg-litvi-cream text-litvi-brown rounded-full">
           {item.year}
         </span>
-        <h3 className="text-xl font-bold text-litvi-darkBrown mb-2">{item.title}</h3>
-        <p className="text-litvi-brown/80">{item.description}</p>
+        <h3 className="text-2xl font-bold text-litvi-darkBrown mb-3">{item.title}</h3>
+        <p className="text-litvi-brown/80 text-lg">{item.description}</p>
       </div>
     </motion.div>
   );
@@ -63,8 +63,37 @@ const TimelineItem = ({ item, index }: { item: any, index: number }) => {
 
 const Timeline = () => {
   return (
-    <section id="timeline" className="py-20 bg-litvi-cream">
-      <div className="section-container">
+    <section id="timeline" className="py-24 bg-litvi-cream relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <motion.div 
+          className="absolute -top-40 -right-40 w-96 h-96 bg-litvi-brown/5 rounded-full"
+          animate={{
+            y: [0, 20, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-litvi-brown/5 rounded-full"
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+      </div>
+
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

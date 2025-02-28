@@ -1,7 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Star, ArrowLeft, ArrowRight } from "lucide-react";
+import { Star, ArrowLeft, ArrowRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -49,31 +49,20 @@ const testimonials = [
 const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
   return (
     <motion.div
-      className="bg-white p-8 rounded-xl shadow-sm border border-litvi-brown/10 h-full flex flex-col"
+      className="relative bg-white p-8 rounded-xl shadow-md border border-litvi-brown/10 h-full flex flex-col"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -8, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
     >
-      <div className="flex items-center mb-4">
-        <div className="relative">
-          <img 
-            src={testimonial.avatar} 
-            alt={testimonial.name} 
-            className="w-12 h-12 rounded-full object-cover"
-          />
-          <div className="absolute -bottom-1 -right-1 bg-litvi-brown text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
-            <Star className="w-3 h-3 fill-current" />
-          </div>
-        </div>
-        <div className="ml-4">
-          <h4 className="font-semibold text-litvi-darkBrown">{testimonial.name}</h4>
-          <p className="text-sm text-litvi-brown/70">{testimonial.role}</p>
+      <div className="absolute -top-2 -right-2">
+        <div className="text-litvi-brown/10">
+          <Quote className="h-16 w-16 rotate-180" />
         </div>
       </div>
       
-      <div className="flex mb-4">
+      <div className="flex mb-4 relative z-10">
         {[...Array(5)].map((_, i) => (
           <Star 
             key={i} 
@@ -82,7 +71,19 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
         ))}
       </div>
       
-      <p className="text-litvi-brown/80 flex-grow">{testimonial.content}</p>
+      <p className="text-litvi-brown/80 text-lg mb-6 flex-grow relative z-10">{testimonial.content}</p>
+      
+      <div className="flex items-center mt-4 relative z-10">
+        <img 
+          src={testimonial.avatar} 
+          alt={testimonial.name} 
+          className="w-12 h-12 rounded-full object-cover border-2 border-litvi-cream"
+        />
+        <div className="ml-4">
+          <h4 className="font-semibold text-litvi-darkBrown">{testimonial.name}</h4>
+          <p className="text-sm text-litvi-brown/70">{testimonial.role}</p>
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -102,7 +103,11 @@ const Testimonials = () => {
         itemsToShow = 2; // Tablet
       }
       
-      const visibleItems = testimonials.slice(currentIndex, currentIndex + itemsToShow);
+      const visibleItems = [];
+      for (let i = 0; i < itemsToShow; i++) {
+        const index = (currentIndex + i) % testimonials.length;
+        visibleItems.push(testimonials[index]);
+      }
       setVisibleTestimonials(visibleItems);
     };
     
@@ -113,22 +118,20 @@ const Testimonials = () => {
   }, [currentIndex]);
   
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + 1;
-      return newIndex < testimonials.length ? newIndex : 0;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
   
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex - 1;
-      return newIndex >= 0 ? newIndex : testimonials.length - 1;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
   
   return (
-    <section className="py-20 bg-litvi-cream">
-      <div className="section-container">
+    <section className="py-24 bg-litvi-brown/5 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 right-0 w-48 h-48 bg-litvi-brown/10 rounded-full transform translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-litvi-brown/10 rounded-full transform -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+      
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,15 +154,15 @@ const Testimonials = () => {
             ref={containerRef} 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden"
           >
-            {visibleTestimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            {visibleTestimonials.map((testimonial, idx) => (
+              <TestimonialCard key={`${testimonial.id}-${idx}`} testimonial={testimonial} />
             ))}
           </div>
           
-          <div className="flex justify-center mt-12 space-x-4">
+          <div className="flex justify-center mt-16 space-x-6">
             <motion.button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full bg-white border border-litvi-brown/20 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
+              className="w-14 h-14 rounded-full bg-white shadow-md border border-litvi-brown/10 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -168,7 +171,7 @@ const Testimonials = () => {
             
             <motion.button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-white border border-litvi-brown/20 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
+              className="w-14 h-14 rounded-full bg-white shadow-md border border-litvi-brown/10 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
