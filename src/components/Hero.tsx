@@ -54,7 +54,7 @@ const Hero = () => {
           alt="Luxury kitchen" 
           className="w-full h-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/95 to-litvi-darkCharcoal/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/85 to-litvi-darkCharcoal/80" />
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-0">
