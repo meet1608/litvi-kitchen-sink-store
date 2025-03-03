@@ -17,7 +17,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -67,13 +67,7 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10 px-8 py-6"
-                asChild
-              >
-                <a href="#about">Learn More</a>
-              </Button>
+              
             </motion.div>
           </motion.div>
           

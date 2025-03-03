@@ -99,19 +99,19 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
           <p className="mt-1 text-white/80">${product.price}</p>
         </div>
       </div>
-      
+
       <div className="p-6">
         <p className="text-litvi-brown/80 mb-4">{product.description}</p>
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           className="border-litvi-brown text-litvi-brown hover:bg-litvi-brown hover:text-white w-full flex items-center justify-between"
         >
           <span>View Details</span>
           <ArrowUpRight className="h-4 w-4" />
         </Button>
       </div>
-      
+
       <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="w-8 h-8 bg-litvi-brown rounded-full flex items-center justify-center">
           <span className="text-white font-bold text-xs">New</span>
@@ -123,7 +123,7 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
 
 const Products = () => {
   const [selectedTab, setSelectedTab] = useState("farmhouse");
-  
+
   return (
     <section id="products" className="py-24 bg-litvi-lightCream">
       <div className="section-container">
@@ -139,46 +139,46 @@ const Products = () => {
           </span>
           <h2 className="section-title text-gradient-modern">Premium Kitchen Sinks</h2>
           <p className="section-subtitle">
-            Explore our carefully curated collection of kitchen sinks, 
+            Explore our carefully curated collection of kitchen sinks,
             combining elegant design with unmatched durability.
           </p>
         </motion.div>
-        
-        <Tabs 
-          defaultValue="farmhouse" 
-          value={selectedTab} 
+
+        <Tabs
+          defaultValue="farmhouse"
+          value={selectedTab}
           onValueChange={setSelectedTab}
           className="w-full"
         >
-          <motion.div 
+          <motion.div
             className="flex justify-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <TabsList className="bg-white border border-litvi-brown/20 p-1 shadow-sm">
-              <TabsTrigger 
+            <TabsList className="bg-white border border-litvi-brown/20 p-1 shadow-sm max-w-xs sm:max-w-sm rounded-lg">
+              <TabsTrigger
                 value="farmhouse"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Farmhouse
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="undermount"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Undermount
               </TabsTrigger>
-              <TabsTrigger 
+              <TabsTrigger
                 value="specialty"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-8 py-3"
+                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Specialty
               </TabsTrigger>
             </TabsList>
           </motion.div>
-          
+
           <TabsContent value="farmhouse" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.farmhouse.map((product, index) => (
@@ -186,7 +186,7 @@ const Products = () => {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="undermount" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.undermount.map((product, index) => (
@@ -194,7 +194,7 @@ const Products = () => {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="specialty" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.specialty.map((product, index) => (
@@ -203,15 +203,15 @@ const Products = () => {
             </div>
           </TabsContent>
         </Tabs>
-        
-        <motion.div 
+
+        <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Button 
+          <Button
             className="bg-litvi-brown hover:bg-litvi-darkBrown text-white px-8 py-6"
           >
             View Full Catalog
