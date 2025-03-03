@@ -59,9 +59,9 @@ const Hero = () => {
           <img 
             src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
             alt="Luxury kitchen" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/90 to-litvi-darkCharcoal/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/95 to-litvi-darkCharcoal/90" />
         </motion.div>
       </div>
       
@@ -75,7 +75,7 @@ const Hero = () => {
           >
             <motion.div
               variants={badgeVariants}
-              className="inline-block mb-2 px-4 py-1 rounded-full glass-effect"
+              className="inline-block mb-2 px-4 py-1 rounded-full neo-blur"
             >
               <span className="text-sm font-medium text-litvi-purple">Premium Kitchen Solutions</span>
             </motion.div>
@@ -85,7 +85,7 @@ const Hero = () => {
               className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white leading-tight tracking-tight"
             >
               Redefining{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-litvi-blue via-litvi-purple to-litvi-magenta">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-litvi-steel via-litvi-chrome to-litvi-oceanBlue">
                 Kitchen Excellence
               </span>
             </motion.h1>
@@ -146,7 +146,7 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <div className="bg-gradient-to-r from-litvi-blue to-litvi-oceanBlue text-white px-6 py-3 rounded-lg shadow-lg font-medium">
+                  <div className="bg-gradient-to-r from-litvi-steel to-litvi-chrome text-white px-6 py-3 rounded-lg shadow-lg font-medium">
                     <span className="text-sm uppercase tracking-wider">Premium Quality</span>
                   </div>
                 </motion.div>
@@ -164,8 +164,8 @@ const Hero = () => {
               </motion.div>
               
               {/* Decorative elements */}
-              <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-litvi-purple/20 to-litvi-magenta/20 rounded-full blur-2xl"></div>
-              <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-litvi-blue/20 to-litvi-oceanBlue/20 rounded-full blur-2xl"></div>
+              <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-litvi-steel/20 to-litvi-chrome/10 rounded-full blur-2xl"></div>
+              <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-litvi-purple/20 to-litvi-magenta/10 rounded-full blur-2xl"></div>
             </div>
           </motion.div>
         </div>

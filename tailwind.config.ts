@@ -63,21 +63,33 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				litvi: {
+					// Updated dark theme colors
+					dark: '#121218',            // Darker background
+					darkCharcoal: '#1A1F2C',    // Dark purple-ish charcoal
+					darkGray: '#222222',        // Dark gray
+					mediumGray: '#403E43',      // Medium charcoal gray
+					lightGray: '#8A898C',       // Light gray for text
+					// Metal-like accent colors for kitchen sinks
+					steel: '#71797E',           // Stainless steel color
+					chrome: '#CCCCCC',          // Chrome accent
+					copper: '#B87333',          // Copper accent
+					brass: '#CDA434',           // Brass accent
+					matte: '#36454F',           // Matte black sink color
+					// Accent colors
+					purple: '#8B5CF6',          // Vivid purple
+					magenta: '#D946EF',         // Magenta pink
+					blue: '#1EAEDB',            // Blue accent
+					oceanBlue: '#0EA5E9',       // Ocean blue
+					lightPurple: '#D6BCFA',     // Light purple
+					softPurple: '#E5DEFF',      // Soft purple
+					// Light colors for contrast
+					white: '#FFFFFF',           // Pure white
+					offWhite: '#F9F9F9',        // Off white
+					// We'll keep these colors for compatibility but they won't be primary
 					cream: '#F5F0E5',
 					lightCream: '#FFF8EA',
 					brown: '#9B7E6A',
-					darkBrown: '#5D4B3A',
-					white: '#FFFFFF',
-					offWhite: '#F9F9F9',
-					dark: '#1A1F2C',
-					darkCharcoal: '#221F26',
-					darkGray: '#222222',
-					purple: '#8B5CF6',
-					magenta: '#D946EF',
-					blue: '#1EAEDB',
-					oceanBlue: '#0EA5E9',
-					lightPurple: '#D6BCFA',
-					softPurple: '#E5DEFF'
+					darkBrown: '#5D4B3A'
 				}
 			},
 			borderRadius: {

@@ -81,39 +81,39 @@ const products = {
 const ProductCard = ({ product, index }: { product: any, index: number }) => {
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-xl bg-white shadow-md border border-gray-100"
+      className="sink-card group"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8 }}
     >
-      <div className="aspect-square overflow-hidden">
+      <div className="aspect-square overflow-hidden water-reflection">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 p-6 z-10">
           <h3 className="text-xl font-bold text-white">{product.name}</h3>
           <p className="mt-1 text-white/80">${product.price}</p>
         </div>
       </div>
 
-      <div className="p-6">
-        <p className="text-litvi-brown/80 mb-4">{product.description}</p>
+      <div className="p-6 bg-litvi-darkCharcoal">
+        <p className="text-white/70 mb-4">{product.description}</p>
         <Button
           variant="outline"
           size="sm"
-          className="border-litvi-brown text-litvi-brown hover:bg-litvi-brown hover:text-white w-full flex items-center justify-between"
+          className="border-litvi-steel text-litvi-chrome hover:bg-litvi-steel/20 hover:text-white w-full flex items-center justify-between"
         >
           <span>View Details</span>
           <ArrowUpRight className="h-4 w-4" />
         </Button>
       </div>
 
-      <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="w-8 h-8 bg-litvi-brown rounded-full flex items-center justify-center">
+      <div className="absolute top-4 right-4 neo-blur rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-8 h-8 bg-gradient-to-r from-litvi-purple to-litvi-magenta rounded-full flex items-center justify-center">
           <span className="text-white font-bold text-xs">New</span>
         </div>
       </div>
@@ -125,7 +125,7 @@ const Products = () => {
   const [selectedTab, setSelectedTab] = useState("farmhouse");
 
   return (
-    <section id="products" className="py-24 bg-litvi-lightCream">
+    <section id="products" className="py-24 bg-litvi-dark">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -134,8 +134,8 @@ const Products = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1 mb-4 rounded-full bg-white border border-litvi-brown/20">
-            <span className="text-sm font-medium text-litvi-brown">Our Collection</span>
+          <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
+            <span className="text-sm font-medium text-litvi-purple">Our Collection</span>
           </span>
           <h2 className="section-title text-gradient-modern">Premium Kitchen Sinks</h2>
           <p className="section-subtitle">
@@ -157,22 +157,22 @@ const Products = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <TabsList className="bg-white border border-litvi-brown/20 p-1 shadow-sm max-w-xs sm:max-w-sm rounded-lg">
+            <TabsList className="neo-blur p-1 max-w-xs sm:max-w-sm rounded-lg">
               <TabsTrigger
                 value="farmhouse"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
+                className="data-[state=active]:bg-litvi-purple data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Farmhouse
               </TabsTrigger>
               <TabsTrigger
                 value="undermount"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
+                className="data-[state=active]:bg-litvi-purple data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Undermount
               </TabsTrigger>
               <TabsTrigger
                 value="specialty"
-                className="data-[state=active]:bg-litvi-brown data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
+                className="data-[state=active]:bg-litvi-purple data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
                 Specialty
               </TabsTrigger>
@@ -212,7 +212,7 @@ const Products = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <Button
-            className="bg-litvi-brown hover:bg-litvi-darkBrown text-white px-8 py-6"
+            className="bg-gradient-to-r from-litvi-purple to-litvi-magenta hover:opacity-90 text-white px-8 py-6 shadow-lg"
           >
             View Full Catalog
           </Button>
