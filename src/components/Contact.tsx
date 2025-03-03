@@ -44,7 +44,7 @@ const Contact = () => {
   };
   
   return (
-    <section id="contact" className="py-20 bg-litvi-lightCream">
+    <section id="contact" className="py-20 bg-litvi-dark">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,8 +53,8 @@ const Contact = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1 mb-4 rounded-full bg-white border border-litvi-brown/20">
-            <span className="text-sm font-medium text-litvi-brown">Get In Touch</span>
+          <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
+            <span className="text-sm font-medium text-litvi-purple">Get In Touch</span>
           </span>
           <h2 className="section-title text-gradient-modern">Contact Us</h2>
           <p className="section-subtitle">
@@ -70,12 +70,12 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-litvi-brown/10">
-              <h3 className="text-2xl font-bold text-litvi-darkBrown mb-6">Send Us a Message</h3>
+            <div className="neo-blur p-8 rounded-xl shadow-sm">
+              <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-litvi-brown mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-1">
                     Your Name
                   </label>
                   <Input
@@ -85,12 +85,12 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter your name"
                     required
-                    className="w-full border-litvi-brown/20 focus:border-litvi-brown focus:ring-litvi-brown"
+                    className="dark-input"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-litvi-brown mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1">
                     Your Email
                   </label>
                   <Input
@@ -101,12 +101,12 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     required
-                    className="w-full border-litvi-brown/20 focus:border-litvi-brown focus:ring-litvi-brown"
+                    className="dark-input"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-litvi-brown mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-1">
                     Your Message
                   </label>
                   <Textarea
@@ -116,14 +116,14 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="How can we help you?"
                     required
-                    className="w-full min-h-[150px] border-litvi-brown/20 focus:border-litvi-brown focus:ring-litvi-brown"
+                    className="dark-input min-h-[150px]"
                   />
                 </div>
                 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-litvi-brown hover:bg-litvi-darkBrown text-white"
+                  className="w-full bg-litvi-purple hover:bg-litvi-magenta text-white"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -138,8 +138,8 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col justify-between"
           >
-            <div className="bg-white p-8 rounded-xl shadow-sm mb-8 border border-litvi-brown/10">
-              <h3 className="text-2xl font-bold text-litvi-darkBrown mb-6">Contact Information</h3>
+            <div className="neo-blur p-8 rounded-xl shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               
               <div className="space-y-6">
                 <motion.div 
@@ -147,10 +147,10 @@ const Contact = () => {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <MapPin className="h-6 w-6 text-litvi-brown mr-4 flex-shrink-0" />
+                  <MapPin className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-litvi-darkBrown">Our Location</h4>
-                    <p className="text-litvi-brown/80">123 Design Street, Suite 456<br />New York, NY 10001</p>
+                    <h4 className="font-semibold text-white">Our Location</h4>
+                    <p className="text-white/70">123 Design Street, Suite 456<br />New York, NY 10001</p>
                   </div>
                 </motion.div>
                 
@@ -159,10 +159,10 @@ const Contact = () => {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Phone className="h-6 w-6 text-litvi-brown mr-4 flex-shrink-0" />
+                  <Phone className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-litvi-darkBrown">Phone Number</h4>
-                    <p className="text-litvi-brown/80">+1 (555) 123-4567</p>
+                    <h4 className="font-semibold text-white">Phone Number</h4>
+                    <p className="text-white/70">+1 (555) 123-4567</p>
                   </div>
                 </motion.div>
                 
@@ -171,10 +171,10 @@ const Contact = () => {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Mail className="h-6 w-6 text-litvi-brown mr-4 flex-shrink-0" />
+                  <Mail className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-litvi-darkBrown">Email Address</h4>
-                    <p className="text-litvi-brown/80">hello@litvi.com</p>
+                    <h4 className="font-semibold text-white">Email Address</h4>
+                    <p className="text-white/70">hello@litvi.com</p>
                   </div>
                 </motion.div>
                 
@@ -183,10 +183,10 @@ const Contact = () => {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Clock className="h-6 w-6 text-litvi-brown mr-4 flex-shrink-0" />
+                  <Clock className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-litvi-darkBrown">Business Hours</h4>
-                    <p className="text-litvi-brown/80">
+                    <h4 className="font-semibold text-white">Business Hours</h4>
+                    <p className="text-white/70">
                       Monday - Friday: 9:00 AM - 6:00 PM<br />
                       Saturday: 10:00 AM - 4:00 PM<br />
                       Sunday: Closed
@@ -196,17 +196,17 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-litvi-brown/10">
-              <h3 className="text-2xl font-bold text-litvi-darkBrown mb-4">Our Showroom</h3>
-              <p className="text-litvi-brown/80 mb-4">
+            <div className="neo-blur p-8 rounded-xl shadow-sm">
+              <h3 className="text-2xl font-bold text-white mb-4">Our Showroom</h3>
+              <p className="text-white/70 mb-4">
                 Visit our showroom to experience our premium kitchen sinks in person.
                 Our experts are ready to help you find the perfect solution for your space.
               </p>
-              <div className="rounded-lg overflow-hidden h-[200px] bg-litvi-cream">
+              <div className="rounded-lg overflow-hidden h-[200px] bg-litvi-darkCharcoal">
                 <img 
                   src="https://images.unsplash.com/photo-1523359366921-4c14294ff5bd?w=800&auto=format&fit=crop&q=60" 
                   alt="Litvi showroom" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover opacity-80"
                 />
               </div>
             </div>
