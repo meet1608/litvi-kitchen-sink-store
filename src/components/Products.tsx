@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowUpRight } from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import im1 from '../accets/im1.jpg';
+import im4 from '../accets/im4.jpg';
+import im2 from '../accets/im2.jpg';
+import im3 from '../accets/im3.jpg';
+import im5 from '../accets/im5.jpg';
+import im6 from '../accets/im6.jpg';
+
 
 // Sample product data based on LITVI's Quartz Sinks
 const products = {
@@ -11,7 +19,7 @@ const products = {
       id: 1,
       name: "Metallic Brown",
       price: 299.99,
-      image: "https://images.unsplash.com/photo-1575618312141-5c49f12b3384?w=800&auto=format&fit=crop&q=60",
+      image: im3,
       description: "Elegant Metallic Brown quartz sink with high durability and shine lock technology.",
       dimensions: "16x18x8 inches",
       weight: "8 kg"
@@ -20,7 +28,7 @@ const products = {
       id: 2,
       name: "Metallic Black",
       price: 349.99,
-      image: "https://images.unsplash.com/photo-1631048500962-6aa645e1811f?w=800&auto=format&fit=crop&q=60",
+      image: im6,
       description: "Sleek Metallic Black quartz sink, perfect for modern kitchens.",
       dimensions: "21x18x9 inches",
       weight: "10 kg"
@@ -29,7 +37,7 @@ const products = {
       id: 3,
       name: "Metallic White",
       price: 379.99,
-      image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=800&auto=format&fit=crop&q=60",
+      image: im5,
       description: "Timeless Metallic White quartz sink with a smooth finish.",
       dimensions: "24x18x9 inches",
       weight: "11 kg"
@@ -40,7 +48,7 @@ const products = {
       id: 4,
       name: "Grey Sand",
       price: 329.99,
-      image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop&q=60",
+      image: im4,
       description: "Granite Grey Sand quartz sink, combining elegance and durability.",
       dimensions: "28x19x9 inches",
       weight: "14 kg"
@@ -49,7 +57,7 @@ const products = {
       id: 5,
       name: "Ivory Sand",
       price: 359.99,
-      image: "https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?w=800&auto=format&fit=crop&q=60",
+      image: im2,
       description: "Ivory Sand quartz sink with a natural stone look.",
       dimensions: "31x19x9 inches",
       weight: "14 kg"
@@ -58,7 +66,7 @@ const products = {
       id: 6,
       name: "Red Rose",
       price: 399.99,
-      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&auto=format&fit=crop&q=60",
+      image: im1,
       description: "Bold Red Rose quartz sink, adding a touch of luxury to your kitchen.",
       dimensions: "36x18x9 inches",
       weight: "16 kg"
@@ -69,7 +77,7 @@ const products = {
       id: 7,
       name: "Lemon Sand",
       price: 449.99,
-      image: "https://images.unsplash.com/photo-1597706557896-01c9171351f7?w=800&auto=format&fit=crop&q=60",
+      image: im3,
       description: "Unique Lemon Sand quartz sink with a vibrant finish.",
       dimensions: "37x18x9 inches",
       weight: "24 kg"
@@ -78,7 +86,7 @@ const products = {
       id: 8,
       name: "Moon Sand",
       price: 419.99,
-      image: "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800&auto=format&fit=crop&q=60",
+      image: im5,
       description: "Moon Sand quartz sink with a subtle, elegant texture.",
       dimensions: "30x20x8.5 inches",
       weight: "20.5 kg"
@@ -87,7 +95,7 @@ const products = {
       id: 9,
       name: "Snow Sand",
       price: 399.99,
-      image: "https://images.unsplash.com/photo-1548199569-32d4a8988724?w=800&auto=format&fit=crop&q=60",
+      image: im4,
       description: "Snow Sand quartz sink, offering a pristine white finish.",
       dimensions: "28x19x9 inches",
       weight: "14 kg"
@@ -96,6 +104,12 @@ const products = {
 };
 
 const ProductCard = ({ product, index }: { product: any, index: number }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
     <motion.div
       className="sink-card group"
@@ -104,24 +118,23 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8 }}
     >
-      <div className="aspect-square overflow-hidden water-reflection">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 p-6 z-10">
-          <h3 className="text-xl font-bold text-white">{product.name}</h3>
-          <p className="mt-1 text-white/80">${product.price}</p>
-        </div>
-      </div>
+      <div className="aspect-square overflow-hidden relative">
+  <img
+    src={product.image}
+    alt={product.name}
+    className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-110"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+</div>
+
 
       <div className="p-6 bg-litvi-darkCharcoal">
+      <h3 className="text-xl font-bold text-white">{product.name}</h3>
         <p className="text-white/70 mb-4">{product.description}</p>
         <p className="text-white/70 mb-4">Dimensions: {product.dimensions}</p>
         <p className="text-white/70 mb-4">Weight: {product.weight}</p>
         <Button
+          onClick={handleNavigate}
           variant="outline"
           size="sm"
           className="border-litvi-steel text-litvi-chrome hover:bg-litvi-steel/20 hover:text-white w-full flex items-center justify-between"
@@ -131,11 +144,7 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
         </Button>
       </div>
 
-      <div className="absolute top-4 right-4 neo-blur rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="w-8 h-8 bg-gradient-to-r from-litvi-purple to-litvi-magenta rounded-full flex items-center justify-center">
-          <span className="text-white font-bold text-xs">New</span>
-        </div>
-      </div>
+      
     </motion.div>
   );
 };

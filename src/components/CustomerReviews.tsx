@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import im1 from "../accets/im1.png";
-import im2 from "../accets/im2.png";
-import im3 from "../accets/im3.png";
-import im4 from "../accets/im4.png";
-import im5 from "../accets/im5.png";
+import im1 from "../accets/im1.jpg";
+import im2 from "../accets/im2.jpg";
+import im3 from "../accets/im3.jpg";
+import im4 from "../accets/im4.jpg";
+import im5 from "../accets/im5.jpg";
+import im6 from "../accets/im6.jpg";
 
 const images = [
   {
@@ -37,6 +38,12 @@ const images = [
     src: im5,
     alt: "Litvi Kitchen Sink 5",
     description: "It is easy to clean and highly durable."
+  },
+  {
+    id: 6,
+    src: im6,
+    alt: "Litvi Kitchen Sink 6",
+    description: "Elegant farmhouse sink, a timeless addition to your home."
   }
 ];
 

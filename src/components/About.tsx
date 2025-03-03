@@ -14,6 +14,15 @@ const features = [
   "Shine Lock Technology"
 ];
 
+import im0 from "../accets/im0.jpeg";
+import im1 from "../accets/im1.jpg";
+import im2 from "../accets/im2.jpg";  
+import im3 from "../accets/im3.jpg";
+import im4 from "../accets/im4.jpg";
+import im5 from "../accets/im5.jpg";
+import im6 from "../accets/im6.jpg";
+import im7 from "../accets/im7.jpeg";
+import im8 from "../accets/im8.webp";
 const About = () => {
   return (
     <section id="about" className="py-24 bg-litvi-dark relative overflow-hidden">
@@ -115,7 +124,7 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80" 
+                      src= {im0}
                       alt="Craftsmanship" 
                       className="w-full h-80 object-cover"
                     />
@@ -128,7 +137,7 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80" 
+                      src={im7}
                       alt="Sink design" 
                       className="w-full h-64 object-cover"
                     />
@@ -141,7 +150,7 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1640143405373-cf92d6595667?auto=format&fit=crop&q=80" 
+                      src={im8} 
                       alt="Workshop" 
                       className="w-full h-64 object-cover"
                     />
@@ -154,7 +163,7 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1609259886986-7103cfec4bba?auto=format&fit=crop&q=80" 
+                      src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80"
                       alt="Material selection" 
                       className="w-full h-60 object-cover"
                     />
