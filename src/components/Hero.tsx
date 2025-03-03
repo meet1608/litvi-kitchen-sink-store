@@ -47,7 +47,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden font-sans">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden font-sans hero-gradient">
       {/* Full-screen background with parallax effect */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -59,9 +59,9 @@ const Hero = () => {
           <img 
             src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
             alt="Luxury kitchen" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-litvi-darkBrown/80 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/90 to-litvi-darkCharcoal/80" />
         </motion.div>
       </div>
       
@@ -75,9 +75,9 @@ const Hero = () => {
           >
             <motion.div
               variants={badgeVariants}
-              className="inline-block mb-2 px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+              className="inline-block mb-2 px-4 py-1 rounded-full glass-effect"
             >
-              <span className="text-sm font-medium text-white">Premium Kitchen Solutions</span>
+              <span className="text-sm font-medium text-litvi-purple">Premium Kitchen Solutions</span>
             </motion.div>
             
             <motion.h1 
@@ -85,14 +85,14 @@ const Hero = () => {
               className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white leading-tight tracking-tight"
             >
               Redefining{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-litvi-blue via-litvi-purple to-litvi-magenta">
                 Kitchen Excellence
               </span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl mb-6 text-white/90 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-lg md:text-xl mb-6 text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               Discover our exquisite collection of premium kitchen sinks designed to seamlessly blend 
               timeless elegance with unmatched durability. Transform your kitchen with Litvi's craftsmanship.
@@ -103,7 +103,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button 
-                className="bg-gradient-to-r from-litvi-cream to-white text-litvi-darkBrown hover:brightness-110 transition-all duration-300 px-8 py-6 shadow-lg hover:shadow-xl"
+                className="bg-gradient-to-r from-litvi-purple to-litvi-magenta text-white hover:opacity-90 transition-all duration-300 px-8 py-6 shadow-lg hover:shadow-xl"
                 asChild
               >
                 <a href="#products" className="flex items-center gap-2">
@@ -113,7 +113,7 @@ const Hero = () => {
               </Button>
               
               <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 transition-all duration-300 px-8 py-6"
+                className="bg-transparent border border-white/20 text-white hover:bg-white/10 transition-all duration-300 px-8 py-6"
                 asChild
               >
                 <a href="#about" className="flex items-center gap-2">
@@ -131,7 +131,7 @@ const Hero = () => {
           >
             <div className="relative z-10">
               <motion.div 
-                className="relative z-10 p-6 rounded-2xl backdrop-blur-sm bg-white/10 border border-white/20 shadow-2xl overflow-hidden"
+                className="relative z-10 p-6 rounded-2xl neo-blur overflow-hidden"
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
               >
                 <img 
@@ -146,7 +146,7 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <div className="bg-gradient-to-r from-litvi-cream to-white text-litvi-darkBrown px-6 py-3 rounded-lg shadow-lg font-medium">
+                  <div className="bg-gradient-to-r from-litvi-blue to-litvi-oceanBlue text-white px-6 py-3 rounded-lg shadow-lg font-medium">
                     <span className="text-sm uppercase tracking-wider">Premium Quality</span>
                   </div>
                 </motion.div>
@@ -157,15 +157,15 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
                 >
-                  <div className="bg-gradient-to-r from-litvi-brown to-litvi-darkBrown text-white px-6 py-3 rounded-lg shadow-lg font-medium">
+                  <div className="bg-gradient-to-r from-litvi-purple to-litvi-magenta text-white px-6 py-3 rounded-lg shadow-lg font-medium">
                     <span className="text-sm uppercase tracking-wider">Lifetime Warranty</span>
                   </div>
                 </motion.div>
               </motion.div>
               
               {/* Decorative elements */}
-              <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
-              <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-2xl"></div>
+              <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-litvi-purple/20 to-litvi-magenta/20 rounded-full blur-2xl"></div>
+              <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-litvi-blue/20 to-litvi-oceanBlue/20 rounded-full blur-2xl"></div>
             </div>
           </motion.div>
         </div>

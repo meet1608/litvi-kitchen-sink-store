@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="bg-litvi-cream font-sans">
+    <div className="bg-litvi-dark font-sans text-white">
       <Navbar />
       <Hero />
       <Products />

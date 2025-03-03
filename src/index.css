@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 40 30% 95%;
-    --foreground: 30 25% 20%;
+    --background: 222 33% 15%;
+    --foreground: 210 20% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 30 25% 20%;
+    --card: 222 33% 18%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 25% 20%;
+    --popover: 222 33% 18%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 30 25% 52%;
-    --primary-foreground: 40 30% 97%;
+    --primary: 262 83% 64%;
+    --primary-foreground: 210 20% 98%;
 
-    --secondary: 40 30% 92%;
-    --secondary-foreground: 30 25% 20%;
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 40 20% 92%;
-    --muted-foreground: 30 10% 40%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 40 30% 92%;
-    --accent-foreground: 30 25% 20%;
+    --accent: 217 33% 20%;
+    --accent-foreground: 210 20% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 30% 97%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 30 25% 52%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 262 83% 64%;
 
     --radius: 0.5rem;
 
@@ -52,13 +52,13 @@
   }
 
   body {
-    @apply bg-litvi-cream text-foreground scroll-smooth;
+    @apply bg-litvi-dark text-foreground scroll-smooth;
     font-family: 'Inter', sans-serif;
   }
 
   /* Custom classes for text gradients */
   .text-gradient-modern {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-litvi-brown via-litvi-darkBrown to-litvi-brown;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-litvi-purple via-litvi-magenta to-litvi-blue;
   }
   
   .section-container {
@@ -70,7 +70,7 @@
   }
 
   .section-subtitle {
-    @apply text-xl md:text-2xl text-litvi-brown mb-8 max-w-3xl mx-auto;
+    @apply text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto;
   }
 }
 
@@ -79,20 +79,20 @@
 }
 
 .product-card {
-  @apply relative overflow-hidden rounded-xl bg-white border border-litvi-cream shadow-sm transition-all duration-300;
+  @apply relative overflow-hidden rounded-xl bg-litvi-darkCharcoal border border-litvi-dark/40 shadow-sm transition-all duration-300;
 }
 
 .product-card:hover {
-  @apply shadow-md translate-y-[-5px];
+  @apply shadow-md translate-y-[-5px] border-litvi-purple/40;
 }
 
 .timeline-item::before {
   content: '';
-  @apply absolute top-0 left-[7px] md:left-1/2 md:ml-[-1px] h-full w-[2px] bg-litvi-brown opacity-30;
+  @apply absolute top-0 left-[7px] md:left-1/2 md:ml-[-1px] h-full w-[2px] bg-litvi-purple opacity-30;
 }
 
 .timeline-dot {
-  @apply absolute top-1 left-0 md:left-1/2 md:ml-[-8px] w-4 h-4 rounded-full bg-litvi-brown;
+  @apply absolute top-1 left-0 md:left-1/2 md:ml-[-8px] w-4 h-4 rounded-full bg-litvi-purple;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -106,5 +106,22 @@
 
 /* Glass effect */
 .glass-effect {
-  @apply bg-white/80 backdrop-blur-sm;
+  @apply bg-white/5 backdrop-blur-sm border border-white/10;
+}
+
+/* New styles inspired by Varmora */
+.neo-blur {
+  @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+}
+
+.card-gradient {
+  @apply bg-gradient-to-br from-litvi-darkCharcoal to-litvi-dark border border-white/5;
+}
+
+.hero-gradient {
+  @apply bg-gradient-to-br from-litvi-dark via-litvi-darkCharcoal to-litvi-darkGray;
 }
