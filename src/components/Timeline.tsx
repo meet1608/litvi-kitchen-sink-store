@@ -1,36 +1,25 @@
-
 import { motion } from "framer-motion";
 
 const timelineData = [
   {
-    year: "2005",
-    title: "The Beginning",
-    description: "Litvi was founded with a mission to redefine kitchen experiences through innovative sink designs."
-  },
-  {
-    year: "2010",
-    title: "Design Innovation",
-    description: "Introduced our award-winning farmhouse collection, revolutionizing traditional sink designs with modern sensibilities."
-  },
-  {
-    year: "2015",
-    title: "Sustainable Manufacturing",
-    description: "Transitioned to eco-friendly materials and sustainable manufacturing processes across all product lines."
-  },
-  {
-    year: "2018",
-    title: "Global Expansion",
-    description: "Expanded our reach to international markets, bringing Litvi kitchen solutions to homes worldwide."
-  },
-  {
     year: "2022",
-    title: "Smart Integration",
-    description: "Launched our innovative smart sink technology, seamlessly blending traditional craftsmanship with digital convenience."
+    title: "Factory Inception",
+    description: "Litvi Quartz Sink factory was established, setting the foundation for premium kitchen sink solutions."
   },
   {
     year: "2023",
-    title: "Design Excellence Award",
-    description: "Received prestigious industry recognition for our commitment to exceptional design and functionality."
+    title: "Production Begins",
+    description: "Full-scale manufacturing started with a focus on quality, durability, and modern aesthetics."
+  },
+  {
+    year: "2024",
+    title: "Market Expansion",
+    description: "Expanded our distribution network, reaching more homes and businesses with our innovative sink designs."
+  },
+  {
+    year: "2025",
+    title: "Smart Sink Technology",
+    description: "Introducing AI-powered sink solutions for enhanced convenience and modern kitchen experiences."
   }
 ];
 
@@ -104,10 +93,9 @@ const Timeline = () => {
           <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
             <span className="text-sm font-medium text-litvi-purple">Our Journey</span>
           </span>
-          <h2 className="section-title text-gradient-modern">A Timeline of Excellence</h2>
-          <p className="section-subtitle">
-            From our humble beginnings to becoming a leader in premium kitchen sink solutions, 
-            explore the milestones that have shaped our journey.
+          <h2 className="section-title text-gradient-modern pb-5">Building a Legacy</h2>
+          <p className="section-subtitle ">
+            From our founding year, explore the milestones that have driven our commitment to excellence in kitchen design.
           </p>
         </motion.div>
         

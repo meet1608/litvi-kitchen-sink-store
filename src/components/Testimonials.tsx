@@ -1,52 +1,42 @@
-
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Star, ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import { CheckCircle, ArrowLeft, ArrowRight, Quote } from "lucide-react";
 
-const testimonials = [
+
+const productFeatures = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Interior Designer",
-    content: "Litvi sinks have transformed my clients' kitchens. The craftsmanship is unmatched, and the design elevates any space. They've become my go-to recommendation for high-end renovations.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=60",
-    rating: 5
+    title: "Craftsmanship",
+    description: "Our sinks are crafted with precision and care, ensuring a perfect blend of form and function.",
+    icon: <CheckCircle className="h-6 w-6 text-litvi-purple" />,
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Home Builder",
-    content: "As a custom home builder, I need reliable products that deliver on both quality and aesthetics. Litvi's farmhouse sinks have consistently exceeded my expectations and impressed my most discerning clients.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60",
-    rating: 5
+    title: "Durability",
+    description: "Built to last, our sinks withstand the rigors of daily use while maintaining their beauty.",
+    icon: <CheckCircle className="h-6 w-6 text-litvi-purple" />,
   },
   {
     id: 3,
-    name: "Rebecca Martinez",
-    role: "Homeowner",
-    content: "Our Litvi sink is the centerpiece of our kitchen renovation. The quality is exceptional, and it's held up beautifully with our busy family of five. Worth every penny!",
-    avatar: "https://images.unsplash.com/photo-1546961329-78bef0414d7c?w=100&auto=format&fit=crop&q=60",
-    rating: 5
+    title: "Sustainability",
+    description: "We use eco-friendly materials and sustainable practices to minimize our environmental footprint.",
+    icon: <CheckCircle className="h-6 w-6 text-litvi-purple" />,
   },
   {
     id: 4,
-    name: "David Thompson",
-    role: "Chef & Restaurant Owner",
-    content: "After using Litvi sinks in my restaurant kitchen, I had to have one at home. The durability and functionality are perfect for intense use, and the design is simply stunning.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=60",
-    rating: 4
+    title: "Design Excellence",
+    description: "Our sinks are designed to elevate your kitchen's aesthetic, combining style with functionality.",
+    icon: <CheckCircle className="h-6 w-6 text-litvi-purple" />,
   },
   {
     id: 5,
-    name: "Emily Wilson",
-    role: "Architect",
-    content: "Litvi offers the perfect balance of form and function. Their sinks are not just practical fixtures but design elements that enhance the overall aesthetic of my architectural projects.",
-    avatar: "https://images.unsplash.com/photo-1614644147724-2d4785d69962?w=100&auto=format&fit=crop&q=60",
-    rating: 5
-  }
+    title: "Quality Assurance",
+    description: "Each sink undergoes rigorous quality control to ensure it meets our high standards.",
+    icon: <CheckCircle className="h-6 w-6 text-litvi-purple" />,
+  },
 ];
 
-const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
+const FeatureCard = ({ feature }: { feature: any }) => {
   return (
     <motion.div
       className="relative neo-blur p-8 rounded-xl shadow-md border border-white/10 h-full flex flex-col"
@@ -56,41 +46,18 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
       viewport={{ once: true, amount: 0.3 }}
       whileHover={{ y: -8, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)" }}
     >
-      <div className="absolute -top-2 -right-2">
-        <div className="text-white/10">
-          <Quote className="h-16 w-16 rotate-180" />
-        </div>
+      <div className="flex items-center mb-4 relative z-10">
+        {feature.icon}
+        <h4 className="font-semibold text-white ml-4">{feature.title}</h4>
       </div>
-      
-      <div className="flex mb-4 relative z-10">
-        {[...Array(5)].map((_, i) => (
-          <Star 
-            key={i} 
-            className={`w-4 h-4 ${i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-600'}`} 
-          />
-        ))}
-      </div>
-      
-      <p className="text-white/80 text-lg mb-6 flex-grow relative z-10">{testimonial.content}</p>
-      
-      <div className="flex items-center mt-4 relative z-10">
-        <img 
-          src={testimonial.avatar} 
-          alt={testimonial.name} 
-          className="w-12 h-12 rounded-full object-cover border-2 border-litvi-purple/30"
-        />
-        <div className="ml-4">
-          <h4 className="font-semibold text-white">{testimonial.name}</h4>
-          <p className="text-sm text-white/70">{testimonial.role}</p>
-        </div>
-      </div>
+      <p className="text-white/80 text-lg flex-grow relative z-10">{feature.description}</p>
     </motion.div>
   );
 };
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleTestimonials, setVisibleTestimonials] = useState<any[]>([]);
+  const [visibleFeatures, setVisibleFeatures] = useState<any[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -105,10 +72,10 @@ const Testimonials = () => {
       
       const visibleItems = [];
       for (let i = 0; i < itemsToShow; i++) {
-        const index = (currentIndex + i) % testimonials.length;
-        visibleItems.push(testimonials[index]);
+        const index = (currentIndex + i) % productFeatures.length;
+        visibleItems.push(productFeatures[index]);
       }
-      setVisibleTestimonials(visibleItems);
+      setVisibleFeatures(visibleItems);
     };
     
     updateVisibleItems();
@@ -118,15 +85,15 @@ const Testimonials = () => {
   }, [currentIndex]);
   
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % productFeatures.length);
   };
   
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + productFeatures.length) % productFeatures.length);
   };
   
   return (
-    <section className="py-24 bg-litvi-dark relative overflow-hidden">
+    <section className="py-24 bg-litvi-darkCharcoal relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-48 h-48 bg-litvi-purple/10 rounded-full transform translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-litvi-purple/10 rounded-full transform -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
@@ -140,12 +107,11 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
-            <span className="text-sm font-medium text-litvi-purple">Testimonials</span>
+            <span className="text-sm font-medium text-litvi-purple">Why Choose Us</span>
           </span>
-          <h2 className="section-title text-gradient-modern">What Our Customers Say</h2>
+          <h2 className="section-title text-gradient-modern">Experience the Litvi Difference</h2>
           <p className="section-subtitle">
-            Don't just take our word for it. Hear from homeowners, designers, and professionals
-            who have experienced the Litvi difference.
+            Discover the qualities that set our products apart and make them the perfect choice for your kitchen.
           </p>
         </motion.div>
         
@@ -154,8 +120,8 @@ const Testimonials = () => {
             ref={containerRef} 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden"
           >
-            {visibleTestimonials.map((testimonial, idx) => (
-              <TestimonialCard key={`${testimonial.id}-${idx}`} testimonial={testimonial} />
+            {visibleFeatures.map((feature, idx) => (
+              <FeatureCard key={`${feature.id}-${idx}`} feature={feature} />
             ))}
           </div>
           

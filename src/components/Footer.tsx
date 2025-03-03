@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
@@ -22,7 +21,7 @@ const Footer = () => {
               <span className="text-xl font-bold tracking-tight text-white">Litvi</span>
             </div>
             <p className="text-white/70 mb-6">
-              Transforming kitchens with premium sink solutions that blend elegant design with unmatched durability.
+              Elevating kitchens with innovative sink designs and superior craftsmanship for lasting beauty and functionality.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -66,7 +65,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Explore</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#home" className="text-white/70 hover:text-white transition-colors">
@@ -75,22 +74,22 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#products" className="text-white/70 hover:text-white transition-colors">
-                  Products
+                  Our Products
                 </a>
               </li>
               <li>
                 <a href="#timeline" className="text-white/70 hover:text-white transition-colors">
-                  Our Journey
+                  Company Timeline
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-white/70 hover:text-white transition-colors">
-                  About Us
+                  About Litvi
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-white/70 hover:text-white transition-colors">
-                  Contact
+                  Contact Us
                 </a>
               </li>
             </ul>
@@ -102,8 +101,13 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h3 className="text-lg font-semibold text-white mb-6">Products</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Product Categories</h3>
             <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-white/70 hover:text-white transition-colors">
+                  Quartz Sinks
+                </a>
+              </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
                   Farmhouse Sinks
@@ -114,19 +118,14 @@ const Footer = () => {
                   Undermount Sinks
                 </a>
               </li>
-              <li>
+               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Specialty Sinks
+                  Bar Sinks
                 </a>
               </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Accessories
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Maintenance Products
+                  Kitchen Accessories
                 </a>
               </li>
             </ul>
@@ -138,16 +137,16 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <h3 className="text-lg font-semibold text-white mb-6">Resources</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Customer Support</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Installation Guides
+                  Installation Support
                 </a>
               </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Care & Maintenance
+                  Product Care Tips
                 </a>
               </li>
               <li>
@@ -157,12 +156,12 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  FAQs
+                  FAQ
                 </a>
               </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors">
-                  Blog
+                  Contact Us
                 </a>
               </li>
             </ul>

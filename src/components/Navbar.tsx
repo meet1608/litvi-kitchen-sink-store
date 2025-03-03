@@ -126,7 +126,7 @@ const Navbar = () => {
               <div className="w-8 h-8 rounded-full bg-litvi-purple/20 flex items-center justify-center">
                 <Phone className="h-4 w-4 text-white" />
               </div>
-              <span className="text-sm font-medium">+1 (555) 123-4567</span>
+              <span className="text-sm font-medium">+91 9974391865</span>
             </a>
           </div>
 
@@ -212,7 +212,7 @@ const Navbar = () => {
                 className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+91 9974391865</span>
               </a>
             </div>
           </motion.div>

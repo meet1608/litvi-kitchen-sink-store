@@ -1,79 +1,96 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowUpRight } from 'lucide-react';
 
-// Sample product data
+// Sample product data based on LITVI's Quartz Sinks
 const products = {
-  farmhouse: [
+  metallic: [
     {
       id: 1,
-      name: "Classic Farmhouse",
-      price: 249.99,
+      name: "Metallic Brown",
+      price: 299.99,
       image: "https://images.unsplash.com/photo-1575618312141-5c49f12b3384?w=800&auto=format&fit=crop&q=60",
-      description: "Deep single bowl farmhouse sink with an elegant apron front design."
+      description: "Elegant Metallic Brown quartz sink with high durability and shine lock technology.",
+      dimensions: "16x18x8 inches",
+      weight: "8 kg"
     },
     {
       id: 2,
-      name: "Double Farmhouse",
-      price: 329.99,
+      name: "Metallic Black",
+      price: 349.99,
       image: "https://images.unsplash.com/photo-1631048500962-6aa645e1811f?w=800&auto=format&fit=crop&q=60",
-      description: "Double basin farmhouse sink with spacious compartments for versatile use."
+      description: "Sleek Metallic Black quartz sink, perfect for modern kitchens.",
+      dimensions: "21x18x9 inches",
+      weight: "10 kg"
     },
     {
       id: 3,
-      name: "Rustic Copper",
-      price: 389.99,
+      name: "Metallic White",
+      price: 379.99,
       image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=800&auto=format&fit=crop&q=60",
-      description: "Handcrafted copper farmhouse sink with a timeless patina finish."
+      description: "Timeless Metallic White quartz sink with a smooth finish.",
+      dimensions: "24x18x9 inches",
+      weight: "11 kg"
     }
   ],
-  undermount: [
+  granite: [
     {
       id: 4,
-      name: "Modern Undermount",
-      price: 199.99,
+      name: "Grey Sand",
+      price: 329.99,
       image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop&q=60",
-      description: "Sleek single bowl undermount sink with clean lines and premium finish."
+      description: "Granite Grey Sand quartz sink, combining elegance and durability.",
+      dimensions: "28x19x9 inches",
+      weight: "14 kg"
     },
     {
       id: 5,
-      name: "Dual Basin",
-      price: 259.99,
+      name: "Ivory Sand",
+      price: 359.99,
       image: "https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?w=800&auto=format&fit=crop&q=60",
-      description: "Double bowl undermount sink with equal-sized compartments."
+      description: "Ivory Sand quartz sink with a natural stone look.",
+      dimensions: "31x19x9 inches",
+      weight: "14 kg"
     },
     {
       id: 6,
-      name: "Minimalist Square",
-      price: 229.99,
+      name: "Red Rose",
+      price: 399.99,
       image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&auto=format&fit=crop&q=60",
-      description: "Contemporary square undermount sink with sharp angles and modern appeal."
+      description: "Bold Red Rose quartz sink, adding a touch of luxury to your kitchen.",
+      dimensions: "36x18x9 inches",
+      weight: "16 kg"
     }
   ],
   specialty: [
     {
       id: 7,
-      name: "Integrated Workstation",
+      name: "Lemon Sand",
       price: 449.99,
       image: "https://images.unsplash.com/photo-1597706557896-01c9171351f7?w=800&auto=format&fit=crop&q=60",
-      description: "Multifunctional sink with built-in cutting board, colander, and drying rack."
+      description: "Unique Lemon Sand quartz sink with a vibrant finish.",
+      dimensions: "37x18x9 inches",
+      weight: "24 kg"
     },
     {
       id: 8,
-      name: "Bar Sink",
-      price: 179.99,
+      name: "Moon Sand",
+      price: 419.99,
       image: "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800&auto=format&fit=crop&q=60",
-      description: "Compact bar or prep sink perfect for entertainment areas or islands."
+      description: "Moon Sand quartz sink with a subtle, elegant texture.",
+      dimensions: "30x20x8.5 inches",
+      weight: "20.5 kg"
     },
     {
       id: 9,
-      name: "Smart Sink",
-      price: 599.99,
+      name: "Snow Sand",
+      price: 399.99,
       image: "https://images.unsplash.com/photo-1548199569-32d4a8988724?w=800&auto=format&fit=crop&q=60",
-      description: "Innovative sink with touchless faucet and integrated water conservation system."
+      description: "Snow Sand quartz sink, offering a pristine white finish.",
+      dimensions: "28x19x9 inches",
+      weight: "14 kg"
     }
   ]
 };
@@ -102,6 +119,8 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
 
       <div className="p-6 bg-litvi-darkCharcoal">
         <p className="text-white/70 mb-4">{product.description}</p>
+        <p className="text-white/70 mb-4">Dimensions: {product.dimensions}</p>
+        <p className="text-white/70 mb-4">Weight: {product.weight}</p>
         <Button
           variant="outline"
           size="sm"
@@ -122,7 +141,7 @@ const ProductCard = ({ product, index }: { product: any, index: number }) => {
 };
 
 const Products = () => {
-  const [selectedTab, setSelectedTab] = useState("farmhouse");
+  const [selectedTab, setSelectedTab] = useState("metallic");
 
   return (
     <section id="products" className="py-24 bg-litvi-dark">
@@ -137,15 +156,14 @@ const Products = () => {
           <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
             <span className="text-sm font-medium text-litvi-purple">Our Collection</span>
           </span>
-          <h2 className="section-title text-gradient-modern">Premium Kitchen Sinks</h2>
+          <h2 className="section-title text-gradient-modern">Premium Quartz Kitchen Sinks</h2>
           <p className="section-subtitle">
-            Explore our carefully curated collection of kitchen sinks,
-            combining elegant design with unmatched durability.
+            Explore our exquisite collection of quartz kitchen sinks, designed to blend elegance with unmatched durability.
           </p>
         </motion.div>
 
         <Tabs
-          defaultValue="farmhouse"
+          defaultValue="metallic"
           value={selectedTab}
           onValueChange={setSelectedTab}
           className="w-full"
@@ -159,16 +177,16 @@ const Products = () => {
           >
             <TabsList className="neo-blur p-1 max-w-xs sm:max-w-sm rounded-lg">
               <TabsTrigger
-                value="farmhouse"
+                value="metallic"
                 className="data-[state=active]:bg-litvi-purple data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
-                Farmhouse
+                Metallic Series
               </TabsTrigger>
               <TabsTrigger
-                value="undermount"
+                value="granite"
                 className="data-[state=active]:bg-litvi-purple data-[state=active]:text-white rounded-md px-4 py-2 text-sm"
               >
-                Undermount
+                Granite Series
               </TabsTrigger>
               <TabsTrigger
                 value="specialty"
@@ -179,17 +197,17 @@ const Products = () => {
             </TabsList>
           </motion.div>
 
-          <TabsContent value="farmhouse" className="mt-0">
+          <TabsContent value="metallic" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.farmhouse.map((product, index) => (
+              {products.metallic.map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="undermount" className="mt-0">
+          <TabsContent value="granite" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.undermount.map((product, index) => (
+              {products.granite.map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
               ))}
             </div>

@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CustomerReviews from "@/components/CustomerReviews";
 
 const Index = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const Index = () => {
       <Timeline />
       <About />
       <Testimonials />
+      <CustomerReviews />
       <Contact />
       <Footer />
     </div>

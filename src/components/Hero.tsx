@@ -1,8 +1,7 @@
-
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-
+import im0 from '../accets/im0.jpeg';
 const Hero = () => {
   // Container animation variants
   const containerVariants = {
@@ -47,22 +46,15 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden font-sans hero-gradient">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden font-sans">
       {/* Full-screen background with parallax effect */}
       <div className="absolute inset-0 z-0">
-        <motion.div
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="w-full h-full"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
-            alt="Luxury kitchen" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/95 to-litvi-darkCharcoal/90" />
-        </motion.div>
+        <img 
+          src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
+          alt="Luxury kitchen" 
+          className="w-full h-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-litvi-dark/95 to-litvi-darkCharcoal/90" />
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-0">
@@ -77,7 +69,7 @@ const Hero = () => {
               variants={badgeVariants}
               className="inline-block mb-2 px-4 py-1 rounded-full neo-blur"
             >
-              <span className="text-sm font-medium text-litvi-purple">Premium Kitchen Solutions</span>
+              <span className="text-sm font-medium text-litvi-purple">Premium Quartz Sinks</span>
             </motion.div>
             
             <motion.h1 
@@ -86,7 +78,7 @@ const Hero = () => {
             >
               Redefining{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-litvi-steel via-litvi-chrome to-litvi-oceanBlue">
-                Kitchen Excellence
+                Kitchen Elegance
               </span>
             </motion.h1>
             
@@ -94,8 +86,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg md:text-xl mb-6 text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Discover our exquisite collection of premium kitchen sinks designed to seamlessly blend 
-              timeless elegance with unmatched durability. Transform your kitchen with Litvi's craftsmanship.
+              LITVI is one of the finest manufacturers of Quartz Kitchen sinks in India, offering innovative designs and unmatched durability. Transform your kitchen with our exquisite collection of Metallic and Granite series sinks.
             </motion.p>
             
             <motion.div
@@ -135,7 +126,7 @@ const Hero = () => {
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80" 
+                  src= {im0}
                   alt="Elegant kitchen sink" 
                   className="w-full h-auto object-cover rounded-xl shadow-inner"
                 />
@@ -147,7 +138,7 @@ const Hero = () => {
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
                   <div className="bg-gradient-to-r from-litvi-steel to-litvi-chrome text-white px-6 py-3 rounded-lg shadow-lg font-medium">
-                    <span className="text-sm uppercase tracking-wider">Premium Quality</span>
+                    <span className="text-sm uppercase tracking-wider">High Durability</span>
                   </div>
                 </motion.div>
                 
@@ -158,7 +149,7 @@ const Hero = () => {
                   transition={{ delay: 1, duration: 0.5 }}
                 >
                   <div className="bg-gradient-to-r from-litvi-purple to-litvi-magenta text-white px-6 py-3 rounded-lg shadow-lg font-medium">
-                    <span className="text-sm uppercase tracking-wider">Lifetime Warranty</span>
+                    <span className="text-sm uppercase tracking-wider">Shine Lock Technology</span>
                   </div>
                 </motion.div>
               </motion.div>

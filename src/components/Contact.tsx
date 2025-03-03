@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -34,8 +33,8 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Enquiry sent successfully!",
+        description: "We'll get back to you with price and order details as soon as possible.",
         variant: "default",
       });
       setFormData({ name: "", email: "", message: "" });
@@ -44,7 +43,7 @@ const Contact = () => {
   };
   
   return (
-    <section id="contact" className="py-20 bg-litvi-dark">
+    <section id="contact" className="py-20 bg-litvi-darkCharcoal">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +57,7 @@ const Contact = () => {
           </span>
           <h2 className="section-title text-gradient-modern">Contact Us</h2>
           <p className="section-subtitle">
-            Have questions about our products or need assistance? 
+            Have questions about our products or need assistance with pricing and orders?
             We're here to help you create the kitchen of your dreams.
           </p>
         </motion.div>
@@ -69,9 +68,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.2 }}
+            className="order-2 lg:order-1"
           >
             <div className="neo-blur p-8 rounded-xl shadow-sm">
-              <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Send an Enquiry</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -107,14 +107,14 @@ const Contact = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-1">
-                    Your Message
+                    Enquiry Details
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="How can we help you?"
+                    placeholder="Please provide details about the product, quantity, and any specific requirements."
                     required
                     className="dark-input min-h-[150px]"
                   />
@@ -125,7 +125,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-litvi-purple hover:bg-litvi-magenta text-white"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Enquiry"}
                 </Button>
               </form>
             </div>
@@ -150,7 +150,7 @@ const Contact = () => {
                   <MapPin className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-white">Our Location</h4>
-                    <p className="text-white/70">123 Design Street, Suite 456<br />New York, NY 10001</p>
+                    <p className="text-white/70">Morbi-Rajkot Highway, Near CNG Pump, Tankara, Gujarat, India</p>
                   </div>
                 </motion.div>
                 
@@ -162,7 +162,7 @@ const Contact = () => {
                   <Phone className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-white">Phone Number</h4>
-                    <p className="text-white/70">+1 (555) 123-4567</p>
+                    <p className="text-white/70">+91 9974391865, +91 9081000911, +91 8200169071</p>
                   </div>
                 </motion.div>
                 
@@ -174,7 +174,7 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-litvi-purple mr-4 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-white">Email Address</h4>
-                    <p className="text-white/70">hello@litvi.com</p>
+                    <p className="text-white/70">litviindustries@gmail.com</p>
                   </div>
                 </motion.div>
                 
@@ -187,8 +187,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-white">Business Hours</h4>
                     <p className="text-white/70">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday: 10:00 AM - 4:00 PM<br />
+                      Monday - Saturday: 9:00 AM - 8:00 PM<br />
                       Sunday: Closed
                     </p>
                   </div>
@@ -196,20 +195,7 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="neo-blur p-8 rounded-xl shadow-sm">
-              <h3 className="text-2xl font-bold text-white mb-4">Our Showroom</h3>
-              <p className="text-white/70 mb-4">
-                Visit our showroom to experience our premium kitchen sinks in person.
-                Our experts are ready to help you find the perfect solution for your space.
-              </p>
-              <div className="rounded-lg overflow-hidden h-[200px] bg-litvi-darkCharcoal">
-                <img 
-                  src="https://images.unsplash.com/photo-1523359366921-4c14294ff5bd?w=800&auto=format&fit=crop&q=60" 
-                  alt="Litvi showroom" 
-                  className="w-full h-full object-cover opacity-80"
-                />
-              </div>
-            </div>
+            
           </motion.div>
         </div>
       </div>

@@ -1,19 +1,22 @@
-
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 const features = [
-  "Premium materials sourced globally",
-  "Handcrafted with expert precision",
-  "Revolutionary design approach",
-  "Sustainable manufacturing",
-  "Lifetime warranty on all products",
-  "Award-winning customer service"
+  "Easy to Clean",
+  "Stain Resistant",
+  "Ever Lasting",
+  "Hygienic",
+  "Heat Resistant",
+  "Range of Colors",
+  "Certified Quality",
+  "High Durability",
+  "Reversible",
+  "Shine Lock Technology"
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-litvi-darkCharcoal relative overflow-hidden">
+    <section id="about" className="py-24 bg-litvi-dark relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <motion.div 
@@ -52,9 +55,9 @@ const About = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
-            <span className="text-sm font-medium text-litvi-purple">Our Story</span>
+            <span className="text-sm font-medium text-litvi-purple">About Us</span>
           </span>
-          <h2 className="section-title text-gradient-modern">The Litvi Legacy</h2>
+          <h2 className="section-title text-gradient-modern pb-5">LITVI Quartz Sink</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -69,14 +72,10 @@ const About = () => {
               Crafting Excellence <br/>for Your Kitchen
             </span>
             <p className="text-white/70 mb-6 text-lg">
-              Litvi was born from a passion for combining artistry with functionality. 
-              For nearly two decades, we've been revolutionizing kitchens with our premium sink designs,
-              meticulously crafted to elevate both the aesthetic and practical aspects of your culinary space.
+              LITVI is one of the finest manufacturers of Quartz Kitchen sinks and allied accessories in India. LITVI Quartz Sink is a designer brand Quartz Kitchen sink in the best sense of the terms industry, recognizable by striving innovative looks and styling, originally in design and its ability to delight the eye.
             </p>
             <p className="text-white/70 mb-8 text-lg">
-              Our team of skilled artisans and innovative designers work tirelessly to create products that
-              not only meet the highest standards of quality but also reflect contemporary design sensibilities
-              while honoring timeless craftsmanship traditions.
+              Our sinks are crafted from a unique blend of natural quartz and high-performance acrylic resins, resulting in exceptional durability and resistance to scratches, stains, and heat.  Each sink undergoes rigorous quality control to ensure lasting beauty and functionality. We are committed to providing innovative designs that transform your kitchen into a stylish and efficient space.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -97,26 +96,7 @@ const About = () => {
               ))}
             </div>
             
-            <div className="flex items-center space-x-4 mt-10">
-              <div className="flex -space-x-3">
-                <img 
-                  className="w-12 h-12 rounded-full border-2 border-litvi-dark object-cover" 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" 
-                  alt="Team member" 
-                />
-                <img 
-                  className="w-12 h-12 rounded-full border-2 border-litvi-dark object-cover" 
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop&q=60" 
-                  alt="Team member" 
-                />
-                <img 
-                  className="w-12 h-12 rounded-full border-2 border-litvi-dark object-cover" 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=60" 
-                  alt="Team member" 
-                />
-              </div>
-              <p className="text-sm font-medium text-white/70">Joined by over <span className="font-semibold text-white">50+ craftspeople</span> worldwide</p>
-            </div>
+            
           </motion.div>
           
           <motion.div
