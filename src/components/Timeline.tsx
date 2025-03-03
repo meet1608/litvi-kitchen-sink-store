@@ -47,15 +47,15 @@ const TimelineItem = ({ item, index }: { item: any, index: number }) => {
     >
       <div className="timeline-dot"></div>
       <div 
-        className={`p-8 bg-white rounded-xl shadow-md border border-litvi-brown/10 hover:shadow-lg transition-all duration-300 ${
+        className={`p-8 neo-blur rounded-xl shadow-md border border-white/10 hover:shadow-lg transition-all duration-300 ${
           isEven ? 'md:text-right' : ''
         }`}
       >
-        <span className="inline-block px-4 py-2 mb-4 text-sm font-bold bg-litvi-cream text-litvi-brown rounded-full">
+        <span className="inline-block px-4 py-2 mb-4 text-sm font-bold bg-litvi-purple/20 text-litvi-purple rounded-full">
           {item.year}
         </span>
-        <h3 className="text-2xl font-bold text-litvi-darkBrown mb-3">{item.title}</h3>
-        <p className="text-litvi-brown/80 text-lg">{item.description}</p>
+        <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+        <p className="text-white/70 text-lg">{item.description}</p>
       </div>
     </motion.div>
   );
@@ -63,11 +63,11 @@ const TimelineItem = ({ item, index }: { item: any, index: number }) => {
 
 const Timeline = () => {
   return (
-    <section id="timeline" className="py-24 bg-litvi-cream relative overflow-hidden">
+    <section id="timeline" className="py-24 bg-litvi-darkCharcoal relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <motion.div 
-          className="absolute -top-40 -right-40 w-96 h-96 bg-litvi-brown/5 rounded-full"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-litvi-purple/5 rounded-full"
           animate={{
             y: [0, 20, 0],
             opacity: [0.3, 0.5, 0.3]
@@ -79,7 +79,7 @@ const Timeline = () => {
           }}
         />
         <motion.div 
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-litvi-brown/5 rounded-full"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-litvi-purple/5 rounded-full"
           animate={{
             y: [0, -20, 0],
             opacity: [0.3, 0.5, 0.3]
@@ -101,8 +101,8 @@ const Timeline = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1 mb-4 rounded-full bg-white border border-litvi-brown/20">
-            <span className="text-sm font-medium text-litvi-brown">Our Journey</span>
+          <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
+            <span className="text-sm font-medium text-litvi-purple">Our Journey</span>
           </span>
           <h2 className="section-title text-gradient-modern">A Timeline of Excellence</h2>
           <p className="section-subtitle">

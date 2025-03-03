@@ -52,7 +52,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        scrolled ? 'neo-blur backdrop-blur-xl' : 'bg-transparent'
       } transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,13 +64,13 @@ const Navbar = () => {
           >
             <a href="#home" className="flex items-center gap-2">
               <motion.div
-                className="w-10 h-10 bg-litvi-brown rounded-full flex items-center justify-center"
+                className="w-10 h-10 bg-litvi-purple/80 rounded-full flex items-center justify-center"
                 whileHover={{ rotate: 180 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="text-litvi-cream font-bold text-lg">L</span>
+                <span className="text-white font-bold text-lg">L</span>
               </motion.div>
-              <span className="text-xl font-bold tracking-tight text-litvi-darkBrown">Litvi</span>
+              <span className="text-xl font-bold tracking-tight text-white">Litvi</span>
             </a>
           </motion.div>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
                 {item.hasDropdown ? (
                   <button 
                     onClick={() => toggleDropdown(item.name)}
-                    className="text-sm font-medium flex items-center gap-1 text-litvi-brown hover:text-litvi-darkBrown transition-colors"
+                    className="text-sm font-medium flex items-center gap-1 text-white/80 hover:text-white transition-colors"
                   >
                     {item.name}
                     <ChevronDown className="h-4 w-4" />
@@ -89,7 +89,7 @@ const Navbar = () => {
                 ) : (
                   <motion.a
                     href={item.href}
-                    className="text-sm font-medium text-litvi-brown hover:text-litvi-darkBrown transition-colors"
+                    className="text-sm font-medium text-white/80 hover:text-white transition-colors"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 * index }}
@@ -100,12 +100,12 @@ const Navbar = () => {
                 
                 {item.hasDropdown && (
                   <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="bg-white rounded-md shadow-lg py-2 border border-gray-100">
+                    <div className="neo-blur rounded-md shadow-lg py-2 border border-white/10">
                       {item.dropdownItems?.map((dropdownItem) => (
                         <a 
                           key={dropdownItem.name}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-litvi-brown hover:bg-litvi-cream hover:text-litvi-darkBrown transition-colors"
+                          className="block px-4 py-2 text-sm text-white/80 hover:bg-litvi-purple/20 hover:text-white transition-colors"
                         >
                           {dropdownItem.name}
                         </a>
@@ -121,10 +121,10 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <a 
               href="tel:+15551234567" 
-              className="flex items-center gap-2 text-litvi-brown hover:text-litvi-darkBrown transition-colors"
+              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
             >
-              <div className="w-8 h-8 rounded-full bg-litvi-cream flex items-center justify-center">
-                <Phone className="h-4 w-4 text-litvi-brown" />
+              <div className="w-8 h-8 rounded-full bg-litvi-purple/20 flex items-center justify-center">
+                <Phone className="h-4 w-4 text-white" />
               </div>
               <span className="text-sm font-medium">+1 (555) 123-4567</span>
             </a>
@@ -134,7 +134,7 @@ const Navbar = () => {
           <div className="flex md:hidden">
             <button
               type="button"
-              className="text-litvi-brown"
+              className="text-white"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -151,7 +151,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white"
+            className="md:hidden neo-blur"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -164,7 +164,7 @@ const Navbar = () => {
                     <>
                       <button
                         onClick={() => toggleDropdown(item.name)}
-                        className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-litvi-brown hover:text-litvi-darkBrown hover:bg-litvi-lightCream transition-colors"
+                        className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
                       >
                         <span>{item.name}</span>
                         <ChevronDown className={`h-4 w-4 transition-transform ${
@@ -185,7 +185,7 @@ const Navbar = () => {
                               <a
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className="block px-3 py-2 rounded-md text-sm font-medium text-litvi-brown hover:text-litvi-darkBrown hover:bg-litvi-lightCream transition-colors"
+                                className="block px-3 py-2 rounded-md text-sm font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {dropdownItem.name}
@@ -198,7 +198,7 @@ const Navbar = () => {
                   ) : (
                     <a
                       href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-litvi-brown hover:text-litvi-darkBrown hover:bg-litvi-lightCream transition-colors"
+                      className="block px-3 py-2 rounded-md text-base font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -209,7 +209,7 @@ const Navbar = () => {
               
               <a 
                 href="tel:+15551234567" 
-                className="flex items-center gap-2 px-3 py-2 text-litvi-brown hover:text-litvi-darkBrown transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 <span className="text-sm">+1 (555) 123-4567</span>

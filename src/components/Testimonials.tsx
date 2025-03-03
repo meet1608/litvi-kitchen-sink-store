@@ -49,15 +49,15 @@ const testimonials = [
 const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
   return (
     <motion.div
-      className="relative bg-white p-8 rounded-xl shadow-md border border-litvi-brown/10 h-full flex flex-col"
+      className="relative neo-blur p-8 rounded-xl shadow-md border border-white/10 h-full flex flex-col"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -8, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+      whileHover={{ y: -8, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)" }}
     >
       <div className="absolute -top-2 -right-2">
-        <div className="text-litvi-brown/10">
+        <div className="text-white/10">
           <Quote className="h-16 w-16 rotate-180" />
         </div>
       </div>
@@ -66,22 +66,22 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
         {[...Array(5)].map((_, i) => (
           <Star 
             key={i} 
-            className={`w-4 h-4 ${i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`} 
+            className={`w-4 h-4 ${i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-600'}`} 
           />
         ))}
       </div>
       
-      <p className="text-litvi-brown/80 text-lg mb-6 flex-grow relative z-10">{testimonial.content}</p>
+      <p className="text-white/80 text-lg mb-6 flex-grow relative z-10">{testimonial.content}</p>
       
       <div className="flex items-center mt-4 relative z-10">
         <img 
           src={testimonial.avatar} 
           alt={testimonial.name} 
-          className="w-12 h-12 rounded-full object-cover border-2 border-litvi-cream"
+          className="w-12 h-12 rounded-full object-cover border-2 border-litvi-purple/30"
         />
         <div className="ml-4">
-          <h4 className="font-semibold text-litvi-darkBrown">{testimonial.name}</h4>
-          <p className="text-sm text-litvi-brown/70">{testimonial.role}</p>
+          <h4 className="font-semibold text-white">{testimonial.name}</h4>
+          <p className="text-sm text-white/70">{testimonial.role}</p>
         </div>
       </div>
     </motion.div>
@@ -126,10 +126,10 @@ const Testimonials = () => {
   };
   
   return (
-    <section className="py-24 bg-litvi-brown/5 relative overflow-hidden">
+    <section className="py-24 bg-litvi-dark relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-48 h-48 bg-litvi-brown/10 rounded-full transform translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-litvi-brown/10 rounded-full transform -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-48 h-48 bg-litvi-purple/10 rounded-full transform translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-litvi-purple/10 rounded-full transform -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
       
       <div className="section-container relative z-10">
         <motion.div
@@ -139,8 +139,8 @@ const Testimonials = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1 mb-4 rounded-full bg-white border border-litvi-brown/20">
-            <span className="text-sm font-medium text-litvi-brown">Testimonials</span>
+          <span className="inline-block px-4 py-1 mb-4 rounded-full glass-effect">
+            <span className="text-sm font-medium text-litvi-purple">Testimonials</span>
           </span>
           <h2 className="section-title text-gradient-modern">What Our Customers Say</h2>
           <p className="section-subtitle">
@@ -162,7 +162,7 @@ const Testimonials = () => {
           <div className="flex justify-center mt-16 space-x-6">
             <motion.button
               onClick={handlePrev}
-              className="w-14 h-14 rounded-full bg-white shadow-md border border-litvi-brown/10 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
+              className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-white hover:bg-litvi-purple/20 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -171,7 +171,7 @@ const Testimonials = () => {
             
             <motion.button
               onClick={handleNext}
-              className="w-14 h-14 rounded-full bg-white shadow-md border border-litvi-brown/10 flex items-center justify-center text-litvi-brown hover:bg-litvi-brown hover:text-white transition-colors"
+              className="w-14 h-14 rounded-full glass-effect flex items-center justify-center text-white hover:bg-litvi-purple/20 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
