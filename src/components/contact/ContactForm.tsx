@@ -6,7 +6,7 @@ import { useContactForm } from "@/hooks/use-contact-form";
 import { motion } from "framer-motion";
 
 const ContactForm = () => {
-  const { formData, isSubmitting, handleChange, handleSubmit } = useContactForm();
+  const { formData, errors, isSubmitting, handleChange, handleSubmit } = useContactForm();
   
   return (
     <motion.div
@@ -30,9 +30,11 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              required
-              className="dark-input"
+              className={`dark-input ${errors.name ? 'border-red-500' : ''}`}
             />
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+            )}
           </div>
           
           <div>
@@ -46,9 +48,11 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              required
-              className="dark-input"
+              className={`dark-input ${errors.email ? 'border-red-500' : ''}`}
             />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+            )}
           </div>
           
           <div>
@@ -61,9 +65,11 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Please provide details about the product, quantity, and any specific requirements."
-              required
-              className="dark-input min-h-[150px]"
+              className={`dark-input min-h-[150px] ${errors.message ? 'border-red-500' : ''}`}
             />
+            {errors.message && (
+              <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+            )}
           </div>
           
           <Button
