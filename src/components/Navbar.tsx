@@ -5,8 +5,8 @@ import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '#home' },
-  { 
-    name: 'Products', 
+  {
+    name: 'Products',
     href: '#products',
     hasDropdown: true,
     dropdownItems: [
@@ -17,7 +17,7 @@ const navigation = [
   },
   { name: 'Journey', href: '#timeline' },
   { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact Us', href: '#contact' },
 ];
 
 const Navbar = () => {
@@ -51,9 +51,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        scrolled ? 'neo-blur backdrop-blur-xl' : 'bg-transparent'
-      } transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'neo-blur backdrop-blur-xl' : 'bg-transparent'
+        } transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-6">
@@ -79,7 +78,7 @@ const Navbar = () => {
             {navigation.map((item, index) => (
               <div key={item.name} className="relative group">
                 {item.hasDropdown ? (
-                  <button 
+                  <button
                     onClick={() => toggleDropdown(item.name)}
                     className="text-sm font-medium flex items-center gap-1 text-white/80 hover:text-white transition-colors"
                   >
@@ -97,12 +96,12 @@ const Navbar = () => {
                     {item.name}
                   </motion.a>
                 )}
-                
+
                 {item.hasDropdown && (
                   <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                     <div className="neo-blur rounded-md shadow-lg py-2 border border-white/10">
                       {item.dropdownItems?.map((dropdownItem) => (
-                        <a 
+                        <a
                           key={dropdownItem.name}
                           href={dropdownItem.href}
                           className="block px-4 py-2 text-sm text-white/80 hover:bg-litvi-purple/20 hover:text-white transition-colors"
@@ -118,17 +117,8 @@ const Navbar = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="hidden md:flex items-center">
-            <a 
-              href="tel:+15551234567" 
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <div className="w-8 h-8 rounded-full bg-litvi-purple/20 flex items-center justify-center">
-                <Phone className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-sm font-medium">+91 9974391865</span>
-            </a>
-          </div>
+          
+
 
           {/* Mobile menu button */}
           <div className="flex md:hidden">
@@ -167,11 +157,10 @@ const Navbar = () => {
                         className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
                       >
                         <span>{item.name}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
+                        <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
                       </button>
-                      
+
                       <AnimatePresence>
                         {activeDropdown === item.name && (
                           <motion.div
@@ -206,14 +195,8 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
+
               
-              <a 
-                href="tel:+15551234567" 
-                className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors"
-              >
-                <Phone className="h-4 w-4" />
-                <span className="text-sm">+91 9974391865</span>
-              </a>
             </div>
           </motion.div>
         )}
