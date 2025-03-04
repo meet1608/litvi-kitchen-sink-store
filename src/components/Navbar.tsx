@@ -1,11 +1,15 @@
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, ChevronDown, LogIn } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Menu, X, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
+import NavbarLogo from './navigation/NavbarLogo';
+import DesktopMenu from './navigation/DesktopMenu';
+import MobileMenu from './navigation/MobileMenu';
+import { NavigationItem } from './navigation/types';
 
-const navigation = [
+const navigation: NavigationItem[] = [
   { name: 'Home', href: '#home' },
   {
     name: 'Products',
@@ -53,72 +57,16 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'neo-blur backdrop-blur-xl' : 'bg-transparent'
-        } transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'neo-blur backdrop-blur-xl' : 'bg-transparent'} transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <a href="#home" className="flex items-center gap-2">
-              <motion.div
-                className="w-10 h-10 bg-litvi-purple/80 rounded-full flex items-center justify-center"
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="text-white font-bold text-lg">L</span>
-              </motion.div>
-              <span className="text-xl font-bold tracking-tight text-white">Litvi</span>
-            </a>
-          </motion.div>
+          <NavbarLogo />
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            {navigation.map((item, index) => (
-              <div key={item.name} className="relative group">
-                {item.hasDropdown ? (
-                  <button
-                    onClick={() => toggleDropdown(item.name)}
-                    className="text-sm font-medium flex items-center gap-1 text-white/80 hover:text-white transition-colors"
-                  >
-                    {item.name}
-                    <ChevronDown className="h-4 w-4" />
-                  </button>
-                ) : (
-                  <motion.a
-                    href={item.href}
-                    className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 * index }}
-                  >
-                    {item.name}
-                  </motion.a>
-                )}
+          <DesktopMenu navigation={navigation} />
 
-                {item.hasDropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="neo-blur rounded-md shadow-lg py-2 border border-white/10">
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <a
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-white/80 hover:bg-litvi-purple/20 hover:text-white transition-colors"
-                        >
-                          {dropdownItem.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Login Button */}
+          {/* Login Button (Desktop) */}
           <div className="hidden md:flex">
             <Link to="/auth/login">
               <Button variant="outline" className="flex items-center gap-2 border-white/20 text-white hover:bg-litvi-purple/20">
@@ -146,75 +94,13 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="md:hidden neo-blur"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
-              {navigation.map((item) => (
-                <div key={item.name}>
-                  {item.hasDropdown ? (
-                    <>
-                      <button
-                        onClick={() => toggleDropdown(item.name)}
-                        className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''
-                          }`} />
-                      </button>
-
-                      <AnimatePresence>
-                        {activeDropdown === item.name && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="pl-4"
-                          >
-                            {item.dropdownItems?.map((dropdownItem) => (
-                              <a
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="block px-3 py-2 rounded-md text-sm font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {dropdownItem.name}
-                              </a>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-white/80 hover:text-white hover:bg-litvi-purple/20 transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </a>
-                  )}
-                </div>
-              ))}
-
-              {/* Mobile Login Button */}
-              <Link to="/auth/login" onClick={() => setIsOpen(false)}>
-                <Button variant="outline" className="w-full flex items-center justify-center gap-2 border-white/20 text-white hover:bg-litvi-purple/20 mt-2">
-                  <LogIn className="h-4 w-4" />
-                  Login
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu 
+        isOpen={isOpen}
+        navigation={navigation}
+        activeDropdown={activeDropdown}
+        toggleDropdown={toggleDropdown}
+        onClose={() => setIsOpen(false)}
+      />
     </motion.nav>
   );
 };
