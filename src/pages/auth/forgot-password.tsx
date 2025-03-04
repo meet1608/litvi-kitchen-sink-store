@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,7 @@ const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,14 +30,32 @@ const ForgotPassword = () => {
     
     // Simulate password reset process
     setTimeout(() => {
-      // This would be replaced with actual password reset logic
+      // This would be replaced with actual password reset email logic
+      
+      // Generate a dummy token for demo purposes
+      const dummyToken = `reset_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+      
+      // In a real app, this would send an email with a link containing the token
+      console.log(`Reset link would be: /auth/reset-password?token=${dummyToken}`);
+      
       toast({
         title: "Success",
         description: "Password reset instructions have been sent to your email",
       });
       setIsLoading(false);
       setIsSubmitted(true);
+      
+      // For demo purposes, we'll provide a button to simulate clicking the email link
+      setTimeout(() => {
+        // This is just for the demo - in a real app, the user would get an email
+      }, 1000);
     }, 1500);
+  };
+
+  const handleDemoResetLink = () => {
+    // For demonstration purposes only - simulates clicking the reset link from an email
+    const dummyToken = `reset_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+    navigate(`/auth/reset-password?token=${dummyToken}`);
   };
 
   return (
@@ -112,13 +131,23 @@ const ForgotPassword = () => {
               <p className="text-sm text-white/70 mb-6">
                 Please check your email inbox and spam folder. The link will be valid for 30 minutes.
               </p>
-              <Button 
-                variant="outline" 
-                onClick={() => setIsSubmitted(false)}
-                className="w-full border-white/20 text-white hover:bg-litvi-purple/20"
-              >
-                Send again
-              </Button>
+              <div className="space-y-3">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setIsSubmitted(false)}
+                  className="w-full border-white/20 text-white hover:bg-litvi-purple/20"
+                >
+                  Send again
+                </Button>
+                
+                {/* This button is for demo purposes only */}
+                <Button 
+                  onClick={handleDemoResetLink}
+                  className="w-full bg-gradient-to-r from-litvi-purple to-litvi-magenta hover:opacity-90"
+                >
+                  Demo: Open Reset Page
+                </Button>
+              </div>
             </div>
           )}
           
