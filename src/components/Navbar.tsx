@@ -1,7 +1,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown, LogIn } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -116,9 +118,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Contact Info */}
-          
-
+          {/* Login Button */}
+          <div className="hidden md:flex">
+            <Link to="/auth/login">
+              <Button variant="outline" className="flex items-center gap-2 border-white/20 text-white hover:bg-litvi-purple/20">
+                <LogIn className="h-4 w-4" />
+                Login
+              </Button>
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden">
@@ -196,7 +204,13 @@ const Navbar = () => {
                 </div>
               ))}
 
-              
+              {/* Mobile Login Button */}
+              <Link to="/auth/login" onClick={() => setIsOpen(false)}>
+                <Button variant="outline" className="w-full flex items-center justify-center gap-2 border-white/20 text-white hover:bg-litvi-purple/20 mt-2">
+                  <LogIn className="h-4 w-4" />
+                  Login
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}
