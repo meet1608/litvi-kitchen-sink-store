@@ -144,10 +144,20 @@ const CartDropdown = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Button className="w-full bg-gradient-to-r from-litvi-purple to-litvi-magenta hover:opacity-90">
-                        Checkout
+                      <Button 
+                        className="w-full bg-gradient-to-r from-litvi-purple to-litvi-magenta hover:opacity-90"
+                        onClick={() => {
+                          navigate('/cart');
+                          closeCart();
+                        }}
+                      >
+                        View Cart
                       </Button>
-                      <Button variant="outline" className="w-full border-white/10 text-white hover:bg-white/10" onClick={closeCart}>
+                      <Button 
+                        variant="outline" 
+                        className="w-full border-white/10 text-white hover:bg-white/10" 
+                        onClick={closeCart}
+                      >
                         Continue Shopping
                       </Button>
                     </div>
