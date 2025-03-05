@@ -7,6 +7,7 @@ import { Button } from './ui/button';
 import NavbarLogo from './navigation/NavbarLogo';
 import DesktopMenu from './navigation/DesktopMenu';
 import MobileMenu from './navigation/MobileMenu';
+import CartDropdown from './navigation/CartDropdown';
 import { NavigationItem } from './navigation/types';
 
 const navigation: NavigationItem[] = [
@@ -66,8 +67,9 @@ const Navbar = () => {
           {/* Desktop menu */}
           <DesktopMenu navigation={navigation} />
 
-          {/* Login Button (Desktop) */}
-          <div className="hidden md:flex">
+          {/* Cart and Login Button (Desktop) */}
+          <div className="hidden md:flex items-center space-x-4">
+            <CartDropdown />
             <Link to="/auth/login">
               <Button variant="outline" className="flex items-center gap-2 border-white/20 text-white hover:bg-litvi-purple/20">
                 <LogIn className="h-4 w-4" />
@@ -76,8 +78,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          {/* Mobile menu button and cart */}
+          <div className="flex items-center md:hidden space-x-2">
+            <CartDropdown />
             <button
               type="button"
               className="text-white"
