@@ -1,3 +1,4 @@
+
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -132,7 +133,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { id } = useParams<{ id: string }>();
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [isZoomed, setIsZoomed] = useState(false);
@@ -149,6 +150,11 @@ const ProductDetail = () => {
       }
     }
   }, [id]);
+
+  // Console log to verify cart items
+  useEffect(() => {
+    console.log("Current cart items:", cartItems);
+  }, [cartItems]);
 
   const handleToggleFavorite = () => {
     setIsFavorite(!isFavorite);

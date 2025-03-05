@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, X, Trash2, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '@/context/CartContext';
@@ -11,6 +11,11 @@ const CartDropdown = () => {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, getCartCount } = useCart();
   const navigate = useNavigate();
   
+  // Add logging to debug cart functionality
+  useEffect(() => {
+    console.log("CartDropdown rendered with items:", cartItems);
+  }, [cartItems]);
+
   const toggleCart = () => {
     setIsOpen(!isOpen);
   };
