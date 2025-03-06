@@ -15,6 +15,12 @@ import ForgotPassword from "./pages/auth/forgot-password";
 import ResetPassword from "./pages/auth/reset-password";
 import VerifyOtp from "./pages/auth/verify-otp";
 
+// Admin imports
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminProducts from "./pages/admin/Products";
+import AdminProductEdit from "./pages/admin/ProductEdit";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -33,6 +39,15 @@ const App = () => (
             <Route path="/auth/forgot-password" element={<ForgotPassword />} />
             <Route path="/auth/verify-otp" element={<VerifyOtp />} />
             <Route path="/auth/reset-password" element={<ResetPassword />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="products" element={<AdminProducts />} />
+              <Route path="products/new" element={<AdminProductEdit />} />
+              <Route path="products/edit/:id" element={<AdminProductEdit />} />
+            </Route>
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
