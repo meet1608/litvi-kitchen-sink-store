@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +35,10 @@ const Cart = () => {
     // Log current cart state for debugging
     console.log("Cart page loaded with items:", cartItems);
   }, [cartItems]);
+
+  const handleProceedToCheckout = () => {
+    navigate('/payment');
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-litvi-dark text-white">
@@ -227,6 +230,7 @@ const Cart = () => {
                   
                   <Button 
                     className="w-full bg-gradient-to-r from-litvi-purple to-litvi-magenta hover:opacity-90 mb-4 flex justify-center"
+                    onClick={handleProceedToCheckout}
                   >
                     <CreditCard className="mr-2 h-4 w-4" />
                     Proceed to Checkout
